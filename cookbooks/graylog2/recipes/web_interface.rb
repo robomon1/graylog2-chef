@@ -55,11 +55,11 @@ link "#{node[:graylog2][:basedir]}/web" do
 end
 
 # Perform bundle install on the newly-installed Graylog2 web interface version
-#bash "bundle install" do
-#  cwd "#{node[:graylog2][:basedir]}/web"
-#  code "bundle install --deployment --binstubs"
-#  subscribes :run, resources(:link => "#{node[:graylog2][:basedir]}/web"), :immediately
-#end
+bash "bundle install" do
+  cwd "#{node[:graylog2][:basedir]}/web"
+  code "bundle install --deployment --binstubs"
+  subscribes :run, resources(:link => "#{node[:graylog2][:basedir]}/web"), :immediately
+end
 
 external_hostname = node[:graylog2][:external_hostname]     ? node[:graylog2][:external_hostname] :
     (node.has_key?('ec2') and node.ec2.has_key?('public_hostname')) ? node[:ec2][:public_hostname] :

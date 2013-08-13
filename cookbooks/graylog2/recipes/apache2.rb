@@ -24,8 +24,7 @@ include_recipe "graylog2_chef::web_interface"
 include_recipe "apache2"
 
 # Install gem dependencies
-rbenv_gem "passenger" do
-	ruby_version "#{node[:graylog2][:ruby_version]}"
+gem_package "passenger" do
 	version "#{node[:graylog2][:passenger_version]}"
 end
 
@@ -46,7 +45,7 @@ package "libaprutil1-dev"
 # Build the Apache module
 bash "install-apache-module" do
   cwd "#{node[:graylog2][:basedir]}/web"
-  code "source /etc/profile.d/rbenv.sh && yes | passenger-install-apache2-module"
+  code "yes | passenger-install-apache2-module"
   creates "/opt/rbenv/versions/#{node[:graylog2][:ruby_version]}/lib/ruby/gems/1.9.1/gems/passenger-#{node[:graylog2][:passenger_version]}/libout/apache2/mod_passenger.so"
   user "root"
   notifies :restart, "service[apache2]"

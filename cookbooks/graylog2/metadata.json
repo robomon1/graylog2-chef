@@ -1,0 +1,493 @@
+{
+  "name": "graylog2",
+  "description": "Installs and configures Graylog2",
+  "long_description": "",
+  "maintainer": "Phil Sturgeon",
+  "maintainer_email": "email@philsturgeon.co.uk",
+  "license": "Apache 2.0",
+  "platforms": {
+    "ubuntu": ">= 0.0.0"
+  },
+  "dependencies": {
+    "apt": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "graylog2": {
+      "display_name": "Graylog2 Hash",
+      "description": "Hash of Graylog2 attributes",
+      "type": "hash",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/repo": {
+      "display_name": "Graylog2 Repo",
+      "description": "Debian repository for Graylog2 install",
+      "default": "http://download.graylog2.org",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/basedir": {
+      "display_name": "Graylog2 Base Directory",
+      "description": "Installation directory for Graylog2",
+      "default": "/var/graylog2",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/server/version": {
+      "display_name": "Graylog2 Version",
+      "description": "Graylog2 version to install",
+      "default": "0.11.0",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/web_interface/version": {
+      "display_name": "Graylog2 Web Interface Version",
+      "description": "Graylog2 web interface version to install",
+      "default": "0.11.0",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/web_interface/listen_port": {
+      "display_name": "Graylog2 Web Interface Listen Port",
+      "description": "Graylog2 Web Interface Listen Port",
+      "default": "4500",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/elasticsearch/repo": {
+      "display_name": "Elasticsearch Repo",
+      "description": "Debian repository for Elasticsearch install",
+      "default": "http://download.elasticsearch.org/elasticsearch/elasticsearch",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/elasticsearch/version": {
+      "display_name": "Elasticsearch Version",
+      "description": "Elasticsearch version to install",
+      "default": "0.20.6",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/mongodb/host": {
+      "display_name": "MongoDB hostname",
+      "description": "MongoDB hostname",
+      "default": "localhost",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/mongodb/port": {
+      "display_name": "MongoDB port",
+      "description": "MongoDB port",
+      "default": "27017",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/mongodb/max_connections": {
+      "display_name": "MongoDB max connections",
+      "description": "MongoDB max connections",
+      "default": "150",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/mongodb/database": {
+      "display_name": "MongoDB database",
+      "description": "MongoDB database",
+      "default": "graylog2",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/mongodb/auth": {
+      "display_name": "Enable MongoDB Authentication",
+      "description": "Enable MongoDB Authentication",
+      "default": "false",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/mongodb/user": {
+      "display_name": "MongoDB user",
+      "description": "MongoDB user",
+      "default": "user",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/mongodb/password": {
+      "display_name": "MongoDB password",
+      "description": "MongoDB password",
+      "default": "password",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/protocol": {
+      "display_name": "Graylog2 Protocol",
+      "description": "Graylog2 protocol",
+      "default": "udp",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/port": {
+      "display_name": "Graylog2 Port",
+      "description": "Graylog2 port",
+      "default": "514",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/gelf_port": {
+      "display_name": "Graylog2 Gelf Port",
+      "description": "Graylog2 Gelf port",
+      "default": "12201",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/collection_size": {
+      "display_name": "Graylog2 Collection Size",
+      "description": "Size of Graylog2 capped collection",
+      "default": "50000000",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/email": {
+      "display_name": "Graylog2 Email",
+      "description": "Graylog2 email",
+      "default": "graylog2@example.com",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/email_package": {
+      "display_name": "Graylog2 Email program",
+      "description": "Graylog2 Email program used to send emails",
+      "default": "postfix",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/allow_deleting": {
+      "display_name": "Graylog2 Allow Deleting",
+      "description": "Enable deleting of logs from Graylog2",
+      "default": "false",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/send_stream_alarms": {
+      "display_name": "Graylog2 Stream Alarms",
+      "description": "Enable sending of stream alarms",
+      "default": "true",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/send_stream_subscriptions": {
+      "display_name": "Graylog2 Stream Subscriptions",
+      "description": "Enable sending of stream subscriptions",
+      "default": "true",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/stream_alarms_cron_minute": {
+      "display_name": "Graylog2 Stream Alarms cron minute",
+      "description": "Graylog2 Stream Alarms cron minute",
+      "default": "*/15",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/stream_subscriptions_cron_minute": {
+      "display_name": "Graylog2 Stream Subscription cron minute",
+      "description": "Graylog2 Stream Subscription cron minute",
+      "default": "*/15",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/external_hostname": {
+      "display_name": "Graylog2 External Hostname",
+      "description": "Graylog2 External Hostname",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/server_name": {
+      "display_name": "Graylog2 Server Name",
+      "description": "Graylog2 Server Name",
+      "default": "graylog2",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/ruby_version": {
+      "display_name": "Graylog2 Ruby Version",
+      "description": "Graylog2 Ruby Version",
+      "default": "1.9.3-p327",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/passenger_version": {
+      "display_name": "Graylog2 Passenger Version",
+      "description": "Graylog2 Passenger Version",
+      "default": "4.0.5",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/unicorn/worker_processes": {
+      "display_name": "Graylog2 Unicorn Worker Processes",
+      "description": "Number of Unicorn Worker Processes",
+      "default": "1",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/unicorn/timeout": {
+      "display_name": "Graylog2 Unicorn Timeout",
+      "description": "Number of Unicorn Timeout",
+      "default": "30",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "graylog2/unicorn/preload_app": {
+      "display_name": "Graylog2 Unicorn Preload",
+      "description": "Number of Unicorn Preload",
+      "default": "true",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "graylog2::default": "Installs and configures Graylog2",
+    "graylog2::server": "Installs and configures Graylog2 Server"
+  },
+  "version": "0.1.0"
+}

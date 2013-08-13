@@ -17,6 +17,9 @@
 # limitations under the License.
 #
 
+# Install required APT packages
+package "openjdk-7-jre"
+
 # Create the release directory
 directory "#{node[:graylog2][:basedir]}/rel" do
   mode 0755

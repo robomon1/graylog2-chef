@@ -12,8 +12,8 @@ depends "apt"     # http://community.opscode.com/cookbooks/apt
 
 recipe "graylog2::default", "Installs and configures Graylog2"
 recipe "graylog2::server", "Installs and configures Graylog2 Server"
-#recipe "graylog2::web_interface", "Installs and configures Graylog2 Web Interface"
-#recipe "graylog2::apache2", "Installs and configures Apache2 to server up the Graylog2 Web Interface"
+recipe "graylog2::web_interface", "Installs and configures Graylog2 Web Interface"
+recipe "graylog2::apache2", "Installs and configures Apache2 to server up the Graylog2 Web Interface"
 
 attribute "graylog2",
   :display_name => "Graylog2 Hash",

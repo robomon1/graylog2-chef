@@ -487,7 +487,9 @@
   },
   "recipes": {
     "graylog2::default": "Installs and configures Graylog2",
-    "graylog2::server": "Installs and configures Graylog2 Server"
+    "graylog2::server": "Installs and configures Graylog2 Server",
+    "graylog2::web_interface": "Installs and configures Graylog2 Web Interface",
+    "graylog2::apache2": "Installs and configures Apache2 to server up the Graylog2 Web Interface"
   },
   "version": "0.1.0"
 }

@@ -18,7 +18,7 @@
 #
 
 # Install Graylog2 web interface
-include_recipe "graylog2_chef::web_interface"
+include_recipe "graylog2::web_interface"
 
 # Install Apache using the OpsCode community cookbook
 include_recipe "apache2"

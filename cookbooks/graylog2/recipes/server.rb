@@ -18,7 +18,9 @@
 #
 
 # Install required APT packages
-package "openjdk-7-jre"
+package "openjdk-7-jre" do
+  options "-f"
+end
 
 # Create the release directory
 directory "#{node[:graylog2][:basedir]}/rel" do
@@ -29,15 +31,15 @@ end
 # Download the elasticsearch dpkg
 
 remote_file "elasticsearch_dpkg" do
-    path "#{node[:graylog2][:basedir]}/rel/elasticsearch-#{node[:graylog2][:elasticsearch][:version]}.deb"
-    source "#{node[:graylog2][:elasticsearch][:repo]}/elasticsearch-#{node[:graylog2][:elasticsearch][:version]}.deb"
-    action :create_if_missing
+  path "#{node[:graylog2][:basedir]}/rel/elasticsearch-#{node[:graylog2][:elasticsearch][:version]}.deb"
+  source "#{node[:graylog2][:elasticsearch][:repo]}/elasticsearch-#{node[:graylog2][:elasticsearch][:version]}.deb"
+  action :create_if_missing
 end
 
 dpkg_package "elasticsearch" do
-    source "#{node[:graylog2][:basedir]}/rel/elasticsearch-#{node[:graylog2][:elasticsearch][:version]}.deb"
-    version node[:graylog2][:elasticsearch][:version]
-    action :install
+  source "#{node[:graylog2][:basedir]}/rel/elasticsearch-#{node[:graylog2][:elasticsearch][:version]}.deb"
+  version node[:graylog2][:elasticsearch][:version]
+  action :install
 end
 
 # Download the desired version of Graylog2 server from GitHub

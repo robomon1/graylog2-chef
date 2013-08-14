@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+rightscale_marker :begin
+
 # Install Graylog2 web interface
 include_recipe "graylog2::web_interface"
 
@@ -24,9 +26,13 @@ include_recipe "graylog2::web_interface"
 include_recipe "apache2"
 
 # Install gem dependencies
-rbenv_gem "passenger" do
-	ruby_version "#{node[:graylog2][:ruby_version]}"
-	version "#{node[:graylog2][:passenger_version]}"
+#rbenv_gem "passenger" do
+#	ruby_version "#{node[:graylog2][:ruby_version]}"
+#	version "#{node[:graylog2][:passenger_version]}"
+#end
+gem_package "passenger" do
+  gem_binary("/usr/bin/gem")
+  version "#{node[:graylog2][:passenger_version]}"
 end
 
 # Install packages to build Apache module:
@@ -46,8 +52,10 @@ package "libaprutil1-dev"
 # Build the Apache module
 bash "install-apache-module" do
   cwd "#{node[:graylog2][:basedir]}/web"
-  code "source /etc/profile.d/rbenv.sh && yes | passenger-install-apache2-module"
-  creates "/opt/rbenv/versions/#{node[:graylog2][:ruby_version]}/lib/ruby/gems/1.9.1/gems/passenger-#{node[:graylog2][:passenger_version]}/libout/apache2/mod_passenger.so"
+#  code "source /etc/profile.d/rbenv.sh && yes | passenger-install-apache2-module"
+  code "yes | passenger-install-apache2-module"
+#  creates "/opt/rbenv/versions/#{node[:graylog2][:ruby_version]}/lib/ruby/gems/1.9.1/gems/passenger-#{node[:graylog2][:passenger_version]}/libout/apache2/mod_passenger.so"
+  creates "/var/lib/gems/1.9.1/gems/passenger-#{node[:graylog2][:passenger_version]}/libout/apache2/mod_passenger.so"
   user "root"
   notifies :restart, "service[apache2]"
 end
@@ -66,3 +74,5 @@ end
 
 # Enable the Graylog2 web interface vhost
 apache_site "graylog2"
+
+rightscale_marker :end

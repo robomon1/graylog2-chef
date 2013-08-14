@@ -35,6 +35,16 @@ gem_package "passenger" do
   version "#{node[:graylog2][:passenger_version]}"
 end
 
+# Link to the passenger bin file so that it is in the path
+link "/usr/bin/passenger" do
+  to "/usr/local/bin/passenger"
+end
+
+# Link to the passenger-install-apache2-module bin file so that it is in the path
+link "/usr/bin/passenger-install-apache2-module" do
+  to "/usr/local/bin/passenger-install-apache2-module"
+end
+
 # Install packages to build Apache module:
 
 # -- Curl development headers with SSL support

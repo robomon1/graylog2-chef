@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+rightscale_marker :begin
+
 # Install required APT packages
 package "build-essential"
 if node.graylog2.email_package
@@ -114,3 +116,5 @@ cron "Graylog2 send stream subscriptions" do
   action node[:graylog2][:send_stream_subscriptions] ? :create : :delete
   command "cd #{node[:graylog2][:basedir]}/web && RAILS_ENV=production bundle exec rake subscriptions:send"
 end
+
+rightscale_marker :end

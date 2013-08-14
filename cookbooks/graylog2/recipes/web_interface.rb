@@ -39,9 +39,9 @@ end
   end
 end
 
-# Link to the bundle bin file
+# Link to the bundle bin file so that it is in the path
 link "/usr/bin/bundle" do
-  to "/var/lib/gems/1.9.1/gems/bundler-1.1.4/bin/bundle"
+  to "/usr/local/bin/bundle"
 end
 
 # Create the release directory

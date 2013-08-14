@@ -34,7 +34,14 @@ end
 
 # Install gem dependencies
 %w{ bundler rake }.each do |g|
-  gem_package "#{g}"
+  gem_package "#{g}" do
+    gem_binary("/usr/bin/gem")
+  end
+end
+
+# Link to the bundle bin file
+link "/usr/bin/bundle" do
+  to "/var/lib/gems/1.9.1/gems/bundler-1.1.4/bin/bundle"
 end
 
 # Create the release directory

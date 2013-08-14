@@ -432,7 +432,7 @@
     "graylog2/passenger_version": {
       "display_name": "Graylog2 Passenger Version",
       "description": "Graylog2 Passenger Version",
-      "default": "4.0.5",
+      "default": "3.0.19",
       "choice": [
 
       ],

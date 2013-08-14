@@ -197,7 +197,7 @@ attribute "graylog2/ruby_version",
 attribute "graylog2/passenger_version",
   :display_name => "Graylog2 Passenger Version",
   :description => "Graylog2 Passenger Version",
-  :default => '4.0.5'
+  :default => '3.0.19'
 
 # default[:graylog2][:unicorn][:worker_processes] = 1
 attribute "graylog2/unicorn/worker_processes",

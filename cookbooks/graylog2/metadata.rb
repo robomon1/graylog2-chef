@@ -54,7 +54,7 @@ attribute "graylog2/web_interface/version",
 attribute "graylog2/web_interface/listen_port",
   :display_name => "Graylog2 Web Interface Listen Port",
   :description => "Graylog2 Web Interface Listen Port",
-  :default => '4500'
+  :default => '80'
   
 # default[:graylog2][:elasticsearch][:repo] = 'http://download.elasticsearch.org/elasticsearch/elasticsearch'
 attribute "graylog2/elasticsearch/repo",

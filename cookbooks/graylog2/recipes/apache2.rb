@@ -65,7 +65,7 @@ bash "install-apache-module" do
 #  code "source /etc/profile.d/rbenv.sh && yes | passenger-install-apache2-module"
   code "yes | passenger-install-apache2-module"
 #  creates "/opt/rbenv/versions/#{node[:graylog2][:ruby_version]}/lib/ruby/gems/1.9.1/gems/passenger-#{node[:graylog2][:passenger_version]}/libout/apache2/mod_passenger.so"
-  creates "/var/lib/gems/1.9.1/gems/passenger-#{node[:graylog2][:passenger_version]}/libout/apache2/mod_passenger.so"
+  creates "/var/lib/gems/1.9.1/gems/passenger-#{node[:graylog2][:passenger_version]}/ext/apache2/mod_passenger.so"
   user "root"
   notifies :restart, "service[apache2]"
 end

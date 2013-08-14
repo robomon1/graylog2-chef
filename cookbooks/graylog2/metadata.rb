@@ -7,6 +7,9 @@ version           "0.1.0"
 # Only supporting Ubuntu 10.x and up
 supports "ubuntu"
 
+# Rightscale dependencies
+depends "rightscale"
+
 # OpsCode cookbook dependencies
 depends "apt"     # http://community.opscode.com/cookbooks/apt
 depends "apache2" # http://community.opscode.com/cookbooks/apache2

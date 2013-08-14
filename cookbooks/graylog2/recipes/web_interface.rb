@@ -24,17 +24,15 @@ if node.graylog2.email_package
 end
 
 # Install rbenv
-include_recipe "rbenv::default"
-include_recipe "rbenv::ruby_build"
+#include_recipe "rbenv::default"
+#include_recipe "rbenv::ruby_build"
 
 # Install specific Ruby version via rbenv
-rbenv_ruby "#{node.graylog2.ruby_version}"
+#rbenv_ruby "#{node.graylog2.ruby_version}"
 
 # Install gem dependencies
 %w{ bundler rake }.each do |g|
-  rbenv_gem "#{g}" do
-    ruby_version "#{node[:graylog2][:ruby_version]}"
-  end
+  gem_package "#{g}"
 end
 
 # Create the release directory
@@ -66,7 +64,8 @@ end
 # Perform bundle install on the newly-installed Graylog2 web interface version
 bash "bundle install" do
   cwd "#{node[:graylog2][:basedir]}/web"
-  code "rbenv local #{node[:graylog2][:ruby_version]} && source /etc/profile.d/rbenv.sh && bundle install --deployment --binstubs"
+#  code "rbenv local #{node[:graylog2][:ruby_version]} && source /etc/profile.d/rbenv.sh && bundle install --deployment --binstubs"
+  code "bundle install --deployment --binstubs"
   subscribes :run, resources(:link => "#{node[:graylog2][:basedir]}/web"), :immediately
 end
 

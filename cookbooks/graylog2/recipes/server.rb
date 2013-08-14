@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+rightscale_marker :begin
+
 # Install required APT packages
 package "openjdk-7-jre" do
   options "-f"
@@ -92,3 +94,5 @@ service "graylog2" do
   supports :restart => true
   action [:enable, :start]
 end
+
+rightscale_marker :end
